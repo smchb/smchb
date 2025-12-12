@@ -1,1 +1,43 @@
+---
+title: "R Markdown and Leaflet Assignment"
+author: "Sara Maria Caicedo Hidalgo"
+date: "2025-12-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Interactive map in Medellin, Colombia (My first map)
+```{r, echo=FALSE }
+library(leaflet)
+lat_medellin <- 6.25184
+lng_medellin <- -75.56748
+
+leaflet() %>%
+
+  addTiles() %>%
+
+  setView(lng = lng_medellin, lat = lat_medellin, zoom = 14) %>%
+  
+  addMarkers(
+    lng = lng_medellin, 
+    lat = lat_medellin, 
+    popup = "Plaza Botero, Medellín",
+    label = "Centro de la Eterna Primavera"
+  ) %>%
+ 
+  addCircles(
+    lng = lng_medellin, 
+    lat = lat_medellin, 
+    radius = 500, 
+    color = "#008080", 
+    fillOpacity = 0.4,
+    popup = "December 10, 2025"
+  )
+
+```
+
 
